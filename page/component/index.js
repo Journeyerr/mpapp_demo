@@ -1,9 +1,10 @@
-import { host } from '../../config/config';
-import { banners } from '../../config/api';
+import { host, token } from '../../config/config';
+import { banners, products } from '../../config/api';
 
 Page({
   data: {
     bannerImages: [],
+    products: [],
     indicatorDots: false,
     autoplay: false,
     interval: 3000,
@@ -16,10 +17,23 @@ Page({
     wx.request({
       url: host + banners,
       header: {
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwidXNlciI6eyJ1c2VyTmFtZSI6ImphdmF0ZXN0IiwidXNlcklkIjoxfSwiaWF0IjoxNTk4OTQ5OTE5LCJuYmYiOjE1OTg5NDk5MTksImV4cCI6MTU5ODk1NTkxOSwiaXNzIjoiemF5YW4ifQ.naNfgTti2RQo9nPNdT7Bx6-XsxCg0YWj1ldWpqopZvM'
+        'Authorization': token
       },
       success(res) {
         that.setData({ bannerImages: res.data.data.records })
+      },
+      fail(res) {
+        that.setData( {error_flag: true , error_msg: res.data.message })
+      }
+    })
+
+    wx.request({
+      url: host + products,
+      header: {
+        'Authorization': token
+      },
+      success(res) {
+        that.setData({ products: res.data.data.records })
       },
       fail(res) {
         that.setData( {error_flag: true , error_msg: res.data.message })
