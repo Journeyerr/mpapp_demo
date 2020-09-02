@@ -22,6 +22,10 @@ swiper-item image {
     width: 100%;
     height: 100%;
 }
+.selected {
+    margin: auto;
+    padding:10rpx 0;
+}
 
 .select-title,.newest-title{
     width: 100%;
@@ -44,24 +48,32 @@ swiper-item image {
     width: 100%;
     height: 100%;
 }
+
+.select-top-small text{
+    border-radius: 20rpx;
+    color: #AB956D;
+}
+
 .newest-box{
-    padding:0 40rpx;
+    /*padding:0 10rpx;*/
 }
 .newest-box .newest-list{
     display: inline-block;
-    width: 325rpx;
-    height: 325rpx;
-    margin:0 20rpx 20rpx 0;
+    width: 370rpx;
+    height: 480rpx;
+    margin: 0;
     border-radius: 10px;
     text-align: center;
-    background: #f5f6f5;
+    /*background: #AB956D;*/
+    color: #AB956D;
 }
+
 .newest-box .newest-list:nth-child(2n){
     margin-right: 0;
 }
 .newest-box .newest-list image{
-    width: 175rpx;
-    height: 175rpx;
+    width: 350rpx;
+    height: 350rpx;
     margin: 20rpx 0 10rpx;
 }
 .newest-box .newest-list .newest-text{
