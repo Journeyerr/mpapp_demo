@@ -1,5 +1,6 @@
 import { host, token } from '../../config/config';
 import { banners, products } from '../../config/api';
+import { getRequest } from '../../config/request';
 
 Page({
   data: {
@@ -13,32 +14,16 @@ Page({
     error_msg: '网络错误！',
   },
   onLoad: function () {
-    var that = this;
-    wx.request({
-      url: host + banners,
-      header: {
-        'Authorization': token
-      },
-      success(res) {
-        that.setData({ bannerImages: res.data.data.records })
-      },
-      fail(res) {
-        that.setData( {error_flag: true , error_msg: res.data.message })
-      }
-    })
+    const that = this;
+    getRequest(banners)
+        .then(data => {
+          that.setData({ bannerImages: data.records })
+        });
 
-    wx.request({
-      url: host + products,
-      header: {
-        'Authorization': token
-      },
-      success(res) {
-        that.setData({ products: res.data.data.records })
-      },
-      fail(res) {
-        that.setData( {error_flag: true , error_msg: res.data.message })
-      }
-    })
+    getRequest(products)
+        .then(data => {
+          that.setData({ products: data.records })
+        })
   },
 
   /**

@@ -1,4 +1,1 @@
-
 export const host = 'http://localhost:9999';
-
-export const token = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwidXNlciI6eyJ1c2VyTmFtZSI6ImphdmF0ZXN0IiwidXNlcklkIjoxfSwiaWF0IjoxNTk4OTQ5OTE5LCJuYmYiOjE1OTg5NDk5MTksImV4cCI6MTU5ODk1NTkxOSwiaXNzIjoiemF5YW4ifQ.naNfgTti2RQo9nPNdT7Bx6-XsxCg0YWj1ldWpqopZvM';

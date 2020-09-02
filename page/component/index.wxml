@@ -47,7 +47,7 @@
                     <navigator url="details/details">
                         <image src="{{ item.product_image }}"></image>
                         <view class="newest-text"><text>{{ item.name }}  {{ item.quantity }}{{ item.unit }}</text></view>
-                        <view class="newest-text"><text>￥ {{ item.price }}</text></view>
+                        <view class="newest-text"><text>￥{{ item.price }}</text></view>
                     </navigator>
                 </view>
             </block>
