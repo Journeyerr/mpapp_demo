@@ -71,6 +71,12 @@
           "pathName": "page/component/details/details",
           "query": "productId=16",
           "scene": null
+        },
+        {
+          "id": -1,
+          "name": "搜索",
+          "pathName": "page/component/search/search",
+          "scene": null
         }
       ]
     }

@@ -1,29 +1,17 @@
-let timeId = null;
+import {getRequest} from "../../../config/request";
+import {products, shopId} from "../../../config/api";
+
 Page({
     data: {
         history: [],
-        hot: ['新鲜芹菜', '大红枣', '滋补桂圆干'],
-        result: [
-            {
-                id: 1,
-                url: '../details/details',
-                thumb: '/image/s4.png',
-                title: '瓜子 100g',
-                price: 0.01
-            },
-            {
-                id: 2,
-                url: '../details/details',
-                thumb: '/image/s5.png',
-                title: '新鲜芹菜 500g',
-                price: 0.02
-            }
-        ],
+        hot: [],
+        products: [],
         showKeywords: false,
         keywords: ['山东肚脐橙', '湖南冰糖橙', '麻涌香蕉', '冰糖心苹果'],
         value: '',
         showResult: false,
     },
+
     cancelSearch() {
         this.setData({
             showResult: false,
@@ -31,22 +19,28 @@ Page({
             value: ''
         })
     },
+
+    // 搜索关键字
     searchInput(e) {
+        const that = this;
         if(!e.detail.value){
-            this.setData({
-                showKeywords: false
+            that.setData({
+                showKeywords: false,
+                showResult: false
             })
         }else{
-            if(!this.data.showKeywords){
-                timeId && clearTimeout(timeId);
-                timeId = setTimeout(() => {
-                    this.setData({
-                        showKeywords: true
-                    })
-                }, 1000)
-            }
+            getRequest(products, {keyWord: e.detail.value, shopId: shopId, 'pageSize':15, 'page':1})
+                .then(data => {
+                    if (data.records.length < 1){
+                        that.setData({ products: data.records, showResult: true })
+                    }else{
+                        let history = this.data.history;
+                        that.setData({ products: data.records, showResult: true })
+                    }
+                })
         }
     },
+
     keywordHandle(e) {
         const text = e.target.dataset.text;
         this.setData({
@@ -57,6 +51,7 @@ Page({
         this.historyHandle(text);
     },
     historyHandle(value) {
+        console.log('---historyHandle----')
         let history = this.data.history;
         const idx = history.indexOf(value);
         if (idx === -1) {

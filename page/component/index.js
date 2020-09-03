@@ -1,5 +1,5 @@
 import { host, token } from '../../config/config';
-import { banners, products } from '../../config/api';
+import { banners, products, shopId} from '../../config/api';
 import { getRequest } from '../../config/request';
 
 Page({
@@ -15,12 +15,12 @@ Page({
   },
   onLoad: function () {
     const that = this;
-    getRequest(banners)
+    getRequest(banners, {'pageSize':15, 'page':1, shopId:shopId})
         .then(data => {
           that.setData({ bannerImages: data.records })
         });
 
-    getRequest(products)
+    getRequest(products, {'pageSize':15, 'page':1, shopId:shopId})
         .then(data => {
           that.setData({ products: data.records })
         })

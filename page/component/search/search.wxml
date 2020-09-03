@@ -5,12 +5,12 @@
         <text class="search-btn" wx:if="{{showResult}}" bindtap="cancelSearch">取消</text>
     </view>
     <view class="result" wx:if="{{showResult}}">
-        <view class="result-box" wx:if="{{result.length > 0}}">
-            <view class="result-list" wx:for="{{result}}" wx:key="index">
-                <navigator url="{{item.url}}">
-                    <image src="{{item.thumb}}"></image>
+        <view class="result-box" wx:if="{{products.length > 0}}">
+            <view class="result-list" wx:for="{{products}}" wx:key="index">
+                <navigator url="../details/details?productId={{ item.id }}">
+                    <image src="{{item.product_image}}"></image>
                     <view class="result-text">
-                        <text>{{item.title}}</text>
+                        <text>{{item.name}}</text>
                     </view>
                     <view class="result-text">
                         <text>￥ {{item.price}}</text>
@@ -21,21 +21,21 @@
         <view class="result-null" wx:else>
             <view class="null-tips">Oh~~ 搜索结果为空！</view>
             <view class="recommend-title">
-                <text>相关推荐</text>
+<!--                <text>相关推荐</text>-->
             </view>
-            <view class="recommend-box">
-                <view class="result-list" wx:for="{{result}}" wx:key="index">
-                    <navigator url="{{item.url}}">
-                        <image src="{{item.thumb}}"></image>
-                        <view class="result-text">
-                            <text>{{item.title}}</text>
-                        </view>
-                        <view class="result-text">
-                            <text>￥ {{item.price}}</text>
-                        </view>
-                    </navigator>
-                </view>
-            </view>
+<!--            <view class="recommend-box">-->
+<!--                <view class="result-list" wx:for="{{result}}" wx:key="index">-->
+<!--                    <navigator url="{{item.url}}">-->
+<!--                        <image src="{{item.thumb}}"></image>-->
+<!--                        <view class="result-text">-->
+<!--                            <text>{{item.title}}</text>-->
+<!--                        </view>-->
+<!--                        <view class="result-text">-->
+<!--                            <text>￥ {{item.price}}</text>-->
+<!--                        </view>-->
+<!--                    </navigator>-->
+<!--                </view>-->
+<!--            </view>-->
         </view>
     </view>
     <view class="init-page" wx:else>
@@ -47,12 +47,12 @@
                 <text wx:for="{{history}}" wx:key="index" data-text="{{item}}" bindtap="keywordHandle">{{item}}</text>
             </view>
         </view>
-        <view class="title">
-            <text>热点推荐</text>
-        </view>
-        <view class="tags">
-            <text wx:for="{{hot}}" wx:key="index" data-text="{{item}}" bindtap="keywordHandle">{{item}}</text>
-        </view>
+<!--        <view class="title">-->
+<!--            <text>热点推荐</text>-->
+<!--        </view>-->
+<!--        <view class="tags">-->
+<!--            <text wx:for="{{hot}}" wx:key="index" data-text="{{item}}" bindtap="keywordHandle">{{item}}</text>-->
+<!--        </view>-->
     </view>
 
     <view class="keywords" wx:if="{{showKeywords}}">
