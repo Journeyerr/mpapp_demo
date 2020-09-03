@@ -58,9 +58,21 @@
       "currentL": -1,
       "list": []
     },
-    "miniprogram": {
+    "gamePlugin": {
       "current": -1,
       "list": []
+    },
+    "miniprogram": {
+      "current": -1,
+      "list": [
+        {
+          "id": 0,
+          "name": "详情",
+          "pathName": "page/component/details/details",
+          "query": "productId=16",
+          "scene": null
+        }
+      ]
     }
   }
 }

@@ -1,45 +1,57 @@
-// page/component/details/details.js
+import { getRequest } from "../../../config/request";
+import { productDetail } from "../../../config/api";
+
 Page({
   data:{
     goods: {
-      id: 1,
-      image: '/image/goods1.png',
-      title: '新鲜梨花带雨',
-      price: 0.01,
-      stock: '有货',
-      detail: '这里是梨花带雨详情。',
-      parameter: '125g/个',
-      service: '不支持退货'
+      id: null,
+      product_image: '',
+      name: '',
+      price: '',
+      remark: '。',
+      parameter: '',
+      service: '',
+      unit: '',
+      quantity: '',
     },
+
     num: 1,
     totalNum: 0,
     hasCarts: false,
     curIndex: 0,
-    show: false,
-    scaleCart: false
+    showCarNum: false,
+    scaleCart: false,
+    productId:null
   },
 
+  onLoad: function(options) {
+    const that = this;
+    getRequest(productDetail + '/' + options.productId)
+        .then(data => {
+            that.setData({goods: data})
+        })
+  },
   addCount() {
-    let num = this.data.num;
-    num++;
-    this.setData({
-      num : num
-    })
+    this.setData({num : this.data.num + 1})
+  },
+  subCount() {
+    if (this.data.num > 1) {
+      this.setData({num : this.data.num - 1})
+    }
   },
 
   addToCart() {
     const self = this;
     const num = this.data.num;
     let total = this.data.totalNum;
-
     self.setData({
-      show: true
-    })
+      showCarNum: true
+    });
     setTimeout( function() {
       self.setData({
-        show: false,
+        showCarNum: false,
         scaleCart : true
-      })
+      });
       setTimeout( function() {
         self.setData({
           scaleCart: false,
@@ -48,14 +60,5 @@ Page({
         })
       }, 200)
     }, 300)
-
-  },
-
-  bindTap(e) {
-    const index = parseInt(e.currentTarget.dataset.index);
-    this.setData({
-      curIndex: index
-    })
   }
- 
-})
+});

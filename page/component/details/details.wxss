@@ -8,9 +8,10 @@
     border-bottom: 30rpx solid #ededed;
 }
 .goods-box .goods-thumb{
-    width: 300rpx;
-    height: 300rpx;
-    margin: 35rpx 0 125rpx;
+    border-radius:20rpx;
+    width: 100%;
+    height: 600rpx;
+    margin: 80rpx 0 100rpx;
 }
 
 .to-carts-icon{
@@ -85,8 +86,7 @@
     width: 100%;
     height: 100rpx;
     line-height: 100rpx;
-    padding: 0 50rpx;
-    margin-bottom: 60rpx;
+    margin-bottom: 30rpx;
     box-sizing: border-box;
     border-radius: 50rpx;
     background: #AB956D;
@@ -98,11 +98,14 @@
     height: 100rpx;
 }
 .goods-operation-num{
-    width: 160rpx;
+    padding: 0 5px;
+    width: 100rpx;
 }
 .goods-operation-add{
+    width: 60rpx;
+}
+.goods-operation-sub{
     width: 80rpx;
-    margin-right: 30rpx;
 }
 .goods-to-cart{
     width: 210rpx;
@@ -115,21 +118,24 @@
     width: 45rpx;
     height: 45rpx;
 }
-
-.goods-stock{
-    font-size: 28rpx;
-    margin-bottom: 20rpx;
-}
 .goods-title{
+    color: #AB956D;
     font-size: 40rpx;
-    margin-bottom: 30rpx;
+    margin-bottom: 10rpx;
 }
 .goods-price{
-    font-size: 40rpx;
+    color: #AB956D;
+    font-size: 38rpx;
+}
+.goods-unit{
+    border: #F76260;
+    padding-left: 5rpx;
+    color: #AB967D;
+    font-size: 30rpx;
 }
 .goods-tab-nav{
     display: inline-block;
-    width: 33.33%;
+    width: 100%;
     height: 90rpx;
     line-height: 90rpx;
     border-bottom: 1rpx solid #ededed;
@@ -142,5 +148,8 @@
     border-bottom: 5rpx solid #bcaa8a;
 }
 .goods-content{
-    padding: 40rpx;
+    padding: 30rpx 40rpx;
+    color: #AB956D;
+    letter-spacing : 1px;
+
 }

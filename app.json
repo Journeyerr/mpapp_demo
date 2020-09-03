@@ -30,12 +30,6 @@
         "text": "主页"
       },
       {
-        "pagePath": "page/component/category/category",
-        "iconPath": "image/22.png",
-        "selectedIconPath": "image/21.png",
-        "text": "分类"
-      },
-      {
         "pagePath": "page/component/cart/cart",
         "iconPath": "image/32.png",
         "selectedIconPath": "image/31.png",
