@@ -9,7 +9,7 @@ Page({
   },
   onLoad(){
     var self = this;
-    
+
     wx.getStorage({
       key: 'address',
       success: function(res){

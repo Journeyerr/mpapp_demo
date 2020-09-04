@@ -1,4 +1,8 @@
 <view class="main">
+    <view class="list" >
+        <text class="list-name">昵称昵称  15014072823</text>
+        <text class="list-address">广东省深圳市南山区粤海街道海德三道168号航天科技广场</text>
+    </view>
     <view class="form-box">
         <form bindsubmit="formSubmit">
             <input value="{{address.name}}" name="name" placeholder="姓名"/>

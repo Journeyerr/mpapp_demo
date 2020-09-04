@@ -76,6 +76,21 @@
           "id": -1,
           "name": "搜索",
           "pathName": "page/component/search/search",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的",
+          "pathName": "page/component/user/user",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "地址管理",
+          "pathName": "page/component/address/address",
+          "query": "",
           "scene": null
         }
       ]

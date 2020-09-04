@@ -4,7 +4,7 @@
         <navigator open-type="switchTab" url="../cart/cart">
             <view class="carts-icon">
                 <image src="/image/cart2.png"></image>
-                <text class="carts-icon-num">{{ totalNum }}</text>
+                <text class="carts-icon-num" wx:if="{{ totalNum }}">{{ totalNum }}</text>
             </view>
         </navigator>
 
