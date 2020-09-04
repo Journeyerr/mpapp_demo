@@ -46,16 +46,16 @@ function checkStatus(response) {
     if(response.statusCode >=200 && response.statusCode < 400){
         switch (response.data.code) {
             case 0:
-                // 请求成功，返回一个Promise对象
                 return Promise.resolve(response.data.data);
                 break;
             case 1001:
-            case 1004:
                 wx.removeStorageSync("token");
                 msg = response.data.msg;
                 break;
+            case 1003:
+                break;
             default:
-                msg = '服务异常，刷新试试';
+                msg = response.data.msg;
                 break;
         }
     }
@@ -64,8 +64,7 @@ function checkStatus(response) {
         icon: 'none',
         duration: 3000
     });
-
-    // 防止重复跳转
+    return Promise.reject()
 
     //获取加载的页面
     // let pages = getCurrentPages();

@@ -1,14 +1,26 @@
 <view class="main">
-    <view class="list" >
-        <text class="list-name">昵称昵称  15014072823</text>
-        <text class="list-address">广东省深圳市南山区粤海街道海德三道168号航天科技广场</text>
+<view class="list" wx:if="{{ !addPageShow }}">
+    <view wx:if="{{ address.length > 0 }}">
+        <view wx:for="{{ address }}" wx:key="index">
+            <text class="delete-address" bindtap="delAddress" id="{{ item.id }}">删除</text>
+            <text class="list-name">{{ item.name }} {{ item.phone }}</text>
+            <text class="list-address"> {{ item.address }}</text>
+        </view>
     </view>
-    <view class="form-box">
-        <form bindsubmit="formSubmit">
-            <input value="{{address.name}}" name="name" placeholder="姓名"/>
-            <input type="number" name="phone" value="{{address.phone}}" placeholder="电话号码"/>
-            <input name="detail" value="{{address.detail}}" placeholder="详细地址"/>
-            <button form-type="submit">保存</button>
-        </form>
+    <view wx:else="">
+        <text class="tips">快新增一条地址吧~</text>
     </view>
 </view>
+
+<view class="form-box" wx:if="{{ addPageShow }}">
+    <form bindsubmit="formSubmit">
+        <input value="{{addressForm.name}}" name="name" placeholder="联系人"/>
+        <input type="number" name="phone" value="{{addressForm.phone}}" placeholder="联系电话"/>
+        <input name="address" value="{{addressForm.address}}" placeholder="请准确填写收货地址"/>
+        <button form-type="submit">保存</button>
+    </form>
+</view>
+<button class="add-address-but" bindtap="addAddress"  wx:if="{{ !addPageShow }}">新增</button>
+<button class="add-address-but" bindtap="cancelAddAddress"  wx:if="{{ addPageShow }}">取消</button>
+</view>
+

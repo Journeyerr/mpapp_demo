@@ -1,15 +1,17 @@
 @import '../../common/common.wxss';
 
 .form-box{
-    padding-left: 30rpx;
+    padding: 20px 50rpx;
 }
 .form-box input{
+    font-size: 14px;
     height: 90rpx;
     border-bottom: 1rpx solid #ededed;
-    color: #999;
+    color: #666666;
 }
 .form-box .input-placeholder{
     color: #aaa;
+    font-size: 15px;
 }
 .form-box button{
     margin:30rpx 30rpx 0 0;
@@ -38,4 +40,30 @@
 .list-address{
     display: block;
     font-size: 26rpx;
+}
+
+.add-address-but {
+    position:fixed;
+    bottom:0;
+    display: block;
+    width: 100%;
+}
+.tips {
+    display: inline-block;
+    text-align: center;
+    font-size: 15px;
+    width:  90%;
+    margin: auto;
+    height: 150px;
+    line-height: 150px;
+    padding-top: 15%;
+    border-bottom: none;
+}
+.delete-address {
+    display: inline-block;
+    height: 40px;
+    padding: 20px 10px 0 0;
+    line-height: 40rpx;
+    float: right;
+    color: peru;
 }
