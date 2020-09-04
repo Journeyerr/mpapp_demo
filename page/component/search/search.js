@@ -12,6 +12,22 @@ Page({
         showResult: false,
     },
 
+    onLoad() {
+        const history = wx.getStorageSync('history');
+        if (history) {
+            this.setData({
+                history: JSON.parse(history)
+            });
+            console.log(this.data.history);
+        }
+    },
+
+    historyClear() {
+        wx.removeStorageSync('history');
+        this.setData({history: []})
+    },
+
+    // 取消搜索
     cancelSearch() {
         this.setData({
             showResult: false,
@@ -31,27 +47,25 @@ Page({
         }else{
             getRequest(products, {keyWord: e.detail.value, shopId: shopId, 'pageSize':15, 'page':1})
                 .then(data => {
-                    if (data.records.length < 1){
-                        that.setData({ products: data.records, showResult: true })
-                    }else{
-                        let history = this.data.history;
-                        that.setData({ products: data.records, showResult: true })
+                    that.setData({ products: data.records, showResult: true })
+                    if (data.records.length > 0){
+                        this.historyHandle(e.detail.value);
                     }
                 })
         }
     },
 
+    // 点击历史搜索记录
     keywordHandle(e) {
+        const that = this;
         const text = e.target.dataset.text;
-        this.setData({
-            value: text,
-            showKeywords: false,
-            showResult: true
-        })
-        this.historyHandle(text);
+        getRequest(products, {keyWord: text, shopId: shopId, 'pageSize':15, 'page':1})
+            .then(data => {
+                that.setData({ products: data.records, showResult: true, value: text})
+            })
     },
+
     historyHandle(value) {
-        console.log('---historyHandle----')
         let history = this.data.history;
         const idx = history.indexOf(value);
         if (idx === -1) {
@@ -64,17 +78,6 @@ Page({
         }
         history.unshift(value);
         wx.setStorageSync('history', JSON.stringify(history));
-        this.setData({
-            history
-        });
-    },
-    onLoad() {
-        const history = wx.getStorageSync('history');
-        if (history) {
-            this.setData({
-                history: JSON.parse(history)
-            })
-            console.log(this.data.history);
-        }
+        this.setData({ history: history});
     }
-})
+});

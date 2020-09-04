@@ -14,9 +14,10 @@
     line-height: 60rpx;
     padding: 0 20rpx 0 54rpx;
     background: #f8f8f8;
-    border-radius: 10rpx;
+    border-radius: 30rpx;
     font-size: 32rpx;
     border: 2rpx solid #ddd;
+    color: #666666;
 }
 
 .search-icon {
@@ -30,6 +31,13 @@
     font-size: 32rpx;
     padding: 0 20rpx;
     line-height: 64rpx;
+    color: #8F8F8F;
+}
+.goods-unit{
+    border: #F76260;
+    padding-left: 5rpx;
+    color: #AB967D;
+    font-size: 27rpx;
 }
 .title{
     font-size: 32rpx;
@@ -38,8 +46,17 @@
 .title text{
     padding-right: 30rpx;
     padding-bottom: 10rpx;
+}
+.history{
     color: #AB956D;
     border-bottom: 8rpx solid #AB956D;
+}
+.history-clear{
+    font-size: 14px;
+    float: right;
+    padding: 8px;
+    color: #aaa;
+    display: inline-block;
 }
 .tags text{
     display: inline-block;
@@ -90,9 +107,8 @@
 .result-list image{
     width: 330rpx;
     height: 350rpx;
-    margin: 0rpx 10rpx 0rpx;
-    border-radius:20rpx;
-    padding-top:20rpx;
+    margin: 0;
+    border-radius:30rpx;
 }
 .result-list .result-text{
     font-size: 32rpx;
