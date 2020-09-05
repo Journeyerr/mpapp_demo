@@ -7,3 +7,5 @@ export const productDetail = '/api/product/detail';
 export const addresses = '/api/address';
 export const createdAddresses = '/api/address/store';
 export const delAddresses = '/api/address/delete';
+export const userInfo = '/api/user';
+export const userUpdate = '/api/user/update';

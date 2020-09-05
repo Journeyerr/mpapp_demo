@@ -35,7 +35,7 @@
     "packNpmRelationList": []
   },
   "compileType": "miniprogram",
-  "libVersion": "1.9.98",
+  "libVersion": "2.12.2",
   "appid": "wxbd3b6b5e923b771d",
   "projectname": "wxapp-mall",
   "isGameTourist": false,

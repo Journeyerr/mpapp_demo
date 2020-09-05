@@ -1,8 +1,14 @@
 <view class="main">
-    <view class="header">
-        <image src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" class="thumb"></image>
-        <text class="nickname">Hi~ AnYuan</text>
-<!--        <text class="about">关于我们</text>-->
+
+    <view class="header" wx:if="{{ noAuthorization }}">
+        <button class="userInfo-but" open-type="openSetting" withSubscriptions="true">设置</button>
+    </view>
+    <view class="header" wx:if="{{ user.name != null && user.name != '' }}">
+        <image src="{{ user.image_url }}" class="thumb"></image>
+        <text class="nickname">hi~ {{ user.name  }}</text>
+    </view>
+    <view class="header" wx:if="{{ user.name === null && !noAuthorization }}">
+        <button class="userInfo-but" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 登录</button>
     </view>
     <view class="address-box">
         <view class="address-manage">

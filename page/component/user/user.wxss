@@ -4,22 +4,34 @@
     position: relative;
     height: 160rpx;
     line-height: 100rpx;
-    padding:30rpx 30rpx 30rpx 150rpx;
+    padding:50rpx 0 150rpx 0rpx;
     box-sizing: border-box;
     background: #AB956D;
     font-size: 28rpx;
     color: #fff;
 }
+
+.userInfo-but {
+    width: 40%;
+    border-radius: 40rpx;
+}
+
 .header .thumb{
     position: absolute;
     left: 30rpx;
-    top: 30rpx;
-    width: 100rpx;
-    height: 100rpx;
+    top: 35rpx;
+    width: 130rpx;
+    height: 130rpx;
     border-radius: 50%;
 }
 .header .about{
     float: right;
+}
+.nickname {
+    font-size: 16px;
+    line-height: 130rpx;
+    padding-left: 26%;
+    font-weight: bold;
 }
 
 .address-box{

@@ -13,7 +13,7 @@ Page({
     address: []
   },
 
-  onLoad(){
+  onLoad: function(){
     const that = this;
     getRequest(addresses)
         .then(data => {
@@ -22,12 +22,12 @@ Page({
   },
 
   // 取消新增地址按钮
-  cancelAddAddress() {
+  cancelAddAddress: function() {
     this.setData({addPageShow: false})
   },
 
   // 删除地址
-  delAddress(value) {
+  delAddress: function(value) {
     const that = this
     console.log(value)
     postRequest(delAddresses + '/' + value.target.id)
@@ -37,13 +37,13 @@ Page({
   },
 
   // 新增地址按钮
-  addAddress() {
+  addAddress: function() {
     this.setData({addPageShow: true})
   },
 
 
   // 新增地址
-  formSubmit(e){
+  formSubmit: function(e){
     const value = e.detail.value;
     const that = this;
     if (value.name && value.phone && value.address){

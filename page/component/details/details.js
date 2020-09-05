@@ -31,16 +31,16 @@ Page({
             that.setData({goods: data})
         })
   },
-  addCount() {
+  addCount: function() {
     this.setData({num : this.data.num + 1})
   },
-  subCount() {
+  subCount: function() {
     if (this.data.num > 1) {
       this.setData({num : this.data.num - 1})
     }
   },
 
-  addToCart() {
+  addToCart: function() {
     const self = this;
     const num = this.data.num;
     let total = this.data.totalNum;
