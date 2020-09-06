@@ -1,5 +1,6 @@
 import { getRequest } from "../../../config/request";
 import { productDetail } from "../../../config/api";
+import {carProductsKey} from "../../../config/config";
 
 Page({
   data:{
@@ -14,13 +15,9 @@ Page({
       unit: '',
       quantity: '',
     },
-
     num: 1,
     totalNum: 0,
-    hasCarts: false,
     curIndex: 0,
-    showCarNum: false,
-    scaleCart: false,
     productId:null
   },
 
@@ -30,6 +27,10 @@ Page({
         .then(data => {
             that.setData({goods: data})
         })
+    const storageProducts = wx.getStorageSync(carProductsKey);
+    if (storageProducts.length > 0) {
+      that.setData({totalNum: storageProducts.length})
+    }
   },
   addCount: function() {
     this.setData({num : this.data.num + 1})
@@ -42,23 +43,69 @@ Page({
 
   addToCart: function() {
     const self = this;
-    const num = this.data.num;
-    let total = this.data.totalNum;
-    self.setData({
-      showCarNum: true
-    });
-    setTimeout( function() {
-      self.setData({
-        showCarNum: false,
-        scaleCart : true
-      });
-      setTimeout( function() {
-        self.setData({
-          scaleCart: false,
-          hasCarts : true,
-          totalNum: num + total
-        })
-      }, 200)
-    }, 300)
-  }
+    const goods = this.data.goods;
+
+    const addProduct = {
+      id: goods.id,
+      name: goods.name,
+      price: goods.price,
+      unit: goods.unit,
+      quantity: goods.quantity,
+      product_image: goods.product_image,
+      count: this.data.num
+    }
+
+    let storageProducts = [];
+    wx.getStorage({
+      key: carProductsKey,
+      success(res) {
+        storageProducts = res.data;
+        console.log('storageProducts ---- ')
+        console.log(storageProducts)
+        let newProduct = true;
+        storageProducts.forEach(function(product, index, arr){
+          if (addProduct.id === product.id) {
+            addProduct.count = product.count + addProduct.count
+            storageProducts.splice(index, 1)
+            storageProducts.unshift(addProduct);
+            newProduct = false;
+          }
+        });
+        if (newProduct) {
+          storageProducts.unshift(addProduct);
+          setTimeout( function() {
+            self.setData({
+              totalNum: self.data.totalNum + 1
+            });
+          }, 200)
+        }
+        wx.setStorageSync(carProductsKey, storageProducts);
+      },
+      fail() {
+        console.log('storageProducts is empty-------')
+        storageProducts.push(addProduct)
+        wx.setStorageSync(carProductsKey, storageProducts);
+        setTimeout( function() {
+          self.setData({
+            totalNum: self.data.totalNum + 1
+          });
+        }, 200)
+      }
+    })
+  },
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

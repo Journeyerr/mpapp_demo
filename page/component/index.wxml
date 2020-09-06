@@ -56,10 +56,18 @@
                     <navigator url="details/details?productId={{ item.id }}">
                         <image src="{{ item.product_image }}"></image>
                         <view class="newest-text"><text>{{ item.name }}  {{ item.quantity }}{{ item.unit }}</text></view>
-                        <view class="newest-text"><text>￥{{ item.price }}</text></view>
+                        <view class="newest-text"><text>￥{{ item.price }}</text>
+<!--                            <text class="add-to-car">+</text>-->
+                        </view>
                     </navigator>
                 </view>
             </block>
         </view>
     </view>
+<!--    <navigator open-type="switchTab" url="../cart/cart">-->
+<!--        <view class="carts-icon">-->
+<!--            <image src="/image/cart2.png"></image>-->
+<!--            <text class="carts-icon-num" wx:if="{{ totalNum }}">{{ totalNum }}</text>-->
+<!--        </view>-->
+<!--    </navigator>-->
 </view>

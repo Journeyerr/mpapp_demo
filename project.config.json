@@ -69,7 +69,7 @@
           "id": 0,
           "name": "详情",
           "pathName": "page/component/details/details",
-          "query": "productId=16",
+          "query": "productId=11",
           "scene": null
         },
         {

@@ -15,7 +15,6 @@
             <text class="goods-to-cart" bindtap="addToCart">加入购物车</text>
             <image src="/image/cart1.png"  class="goods-cart-img" bindtap="addToCart"></image>
         </view>
-        <image wx:if="{{showCarNum}}" src="/image/cart1.png" class="to-carts-icon"></image>
         <view class="goods-title">{{ goods.name }} <text class="goods-unit">{{ goods.quantity }}{{ goods.unit }}</text></view>
         <view class="goods-price">￥{{ goods.price }}</view>
     </view>
