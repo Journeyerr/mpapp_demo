@@ -92,6 +92,13 @@
           "pathName": "page/component/address/address",
           "query": "",
           "scene": null
+        },
+        {
+          "id": -1,
+          "name": "page/component/cart/cart",
+          "pathName": "page/component/cart/cart",
+          "query": "",
+          "scene": null
         }
       ]
     }

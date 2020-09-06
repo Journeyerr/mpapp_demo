@@ -2,6 +2,7 @@
 
 .cart-box{
     padding-bottom: 100rpx;
+    color: #444;
 }
 .cart-list{
     position: relative;
@@ -30,6 +31,19 @@
     height: 105rpx;
     line-height: 50rpx;
     overflow: hidden;
+    color: #333;
+}
+.cart-pro-unit {
+    /*display: inline-block;*/
+    /*padding-top: 5px;*/
+    font-size: 13px;
+    color: #777;
+}
+.cart-pro-quantity {
+    /*display: inline-block;*/
+    /*padding-top: 5px;*/
+    font-size: 14px;
+    color: #666;
 }
 .cart-list .cart-pro-price{
     display: inline-block;
