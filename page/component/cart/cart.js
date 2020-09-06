@@ -5,9 +5,6 @@ Page({
     carts:[],               // 购物车列表
     totalPrice:0,           // 总价，初始为0
     selectAllStatus:true,    // 全选状态，默认全选
-    obj:{
-        name:"hello"
-    }
   },
 
   onShow: function() {
@@ -113,8 +110,9 @@ Page({
     }
     this.setData({
       carts: carts,
-      selectAllStatus: selectNum === carts.length,
+      selectAllStatus:  selectNum === carts.length,
       totalPrice: total.toFixed(2)
     });
+    wx.setStorageSync(carProductsKey, carts)
   }
 })

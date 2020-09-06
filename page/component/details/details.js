@@ -46,6 +46,7 @@ Page({
     const goods = this.data.goods;
 
     const addProduct = {
+      selected:true,
       id: goods.id,
       name: goods.name,
       price: goods.price,
