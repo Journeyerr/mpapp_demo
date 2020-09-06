@@ -10,8 +10,9 @@ Page({
     }
   },
 
-  onLoad: function() {
+  onShow: function() {
     const carProducts = wx.getStorageSync(carProductsKey)
+    console.log('carProducts======')
     console.log(carProducts)
     this.setData({
       carts: carProducts
