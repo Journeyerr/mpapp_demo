@@ -5,6 +5,7 @@ Page({
     carts:[],               // 购物车列表
     totalPrice:0,           // 总价，初始为0
     selectAllStatus:true,    // 全选状态，默认全选
+    hasSelect: true
   },
 
   onShow: function() {
@@ -108,8 +109,10 @@ Page({
         selectNum ++;
       }
     }
+
     this.setData({
       carts: carts,
+      hasSelect: selectNum > 0,
       selectAllStatus:  selectNum === carts.length,
       totalPrice: total.toFixed(2)
     });
