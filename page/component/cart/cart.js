@@ -113,6 +113,8 @@ Page({
       selectAllStatus:  selectNum === carts.length,
       totalPrice: total.toFixed(2)
     });
-    wx.setStorageSync(carProductsKey, carts)
+    if (carts.length > 0){
+      wx.setStorageSync(carProductsKey, carts)
+    }
   }
-})
+});

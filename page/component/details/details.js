@@ -26,12 +26,17 @@ Page({
     getRequest(productDetail + '/' + options.productId)
         .then(data => {
             that.setData({goods: data})
-        })
+        });
     const storageProducts = wx.getStorageSync(carProductsKey);
     if (storageProducts.length > 0) {
-      that.setData({totalNum: storageProducts.length})
+      storageProducts.forEach(function(product, index, arr){
+        if (Number(options.productId) === product.id) {
+          that.setData({totalNum: product.count})
+        }
+      });
     }
   },
+
   addCount: function() {
     this.setData({num : this.data.num + 1})
   },
@@ -54,41 +59,41 @@ Page({
       quantity: goods.quantity,
       product_image: goods.product_image,
       count: this.data.num
-    }
+    };
 
     let storageProducts = [];
     wx.getStorage({
       key: carProductsKey,
       success(res) {
         storageProducts = res.data;
-        console.log('storageProducts ---- ')
-        console.log(storageProducts)
+        console.log('storageProducts ---- ');
+        console.log(storageProducts);
         let newProduct = true;
         storageProducts.forEach(function(product, index, arr){
           if (addProduct.id === product.id) {
-            addProduct.count = product.count + addProduct.count
-            storageProducts.splice(index, 1)
-            storageProducts.unshift(addProduct);
+            storageProducts[index].count = product.count + addProduct.count;
             newProduct = false;
           }
         });
         if (newProduct) {
           storageProducts.unshift(addProduct);
-          setTimeout( function() {
-            self.setData({
-              totalNum: self.data.totalNum + 1
-            });
-          }, 200)
         }
+
+        setTimeout( function() {
+          self.setData({
+            totalNum: self.data.totalNum + addProduct.count
+          });
+        }, 200);
+
         wx.setStorageSync(carProductsKey, storageProducts);
       },
       fail() {
-        console.log('storageProducts is empty-------')
-        storageProducts.push(addProduct)
+        console.log('storageProducts is empty-------');
+        storageProducts.push(addProduct);
         wx.setStorageSync(carProductsKey, storageProducts);
         setTimeout( function() {
           self.setData({
-            totalNum: self.data.totalNum + 1
+            totalNum: self.data.totalNum + addProduct.count
           });
         }, 200)
       }
