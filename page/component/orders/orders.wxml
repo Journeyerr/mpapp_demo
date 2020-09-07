@@ -19,9 +19,13 @@
             </view>
         </view>
     </view>
+    <view class="order-remark">
+        <view class="order-remark-name">订单备注：</view>
+        <input class="order-remark-input" value="{{ remark }}" name="remark" placeholder=""/>
+    </view>
 
     <view class="orders-footer">
-        <view class="orders-footer-total">付款合计：￥{{total}}</view>
-        <view class="orders-footer-btn" bindtap="toPay">生成订单</view>
+        <view class="orders-footer-total">付款合计：￥{{ totalFee }}</view>
+        <view class="orders-footer-btn" bindtap="createOrder">生成订单</view>
     </view>
 </view>

@@ -119,3 +119,25 @@
     color: #fff;
     background: #AB956D;
 }
+
+
+.order-remark {
+    height: 80px;
+    padding: 14px;
+    position:fixed;
+    bottom:47px;
+    width: 100%;
+    background: #F8F8F7;
+}
+.order-remark-name {
+    color: #888;
+    font-size: 16px;
+}
+
+.order-remark-input {
+    color: #666;
+    font-size: 15px;
+    padding-left: 18px;
+    padding-top: 5px;
+}
+

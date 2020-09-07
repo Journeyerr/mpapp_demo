@@ -1,12 +1,13 @@
-import {carProductsKey, orderSelectAddress} from "../../../config/config";
+import {carProductsKey, orderSelectAddresskey} from "../../../config/config";
 
 Page({
   data:{
     address:{},
     hasAddress: false,
-    total:0,
+    totalFee:0,
     products: [],
-    addressId: null
+    addressId: null,
+    remark: '',
   },
 
 
@@ -15,7 +16,7 @@ Page({
     let total = 0;
     let selectedProduct = [];
 
-    const storageAddress = wx.getStorageSync(orderSelectAddress);
+    const storageAddress = wx.getStorageSync(orderSelectAddresskey);
     if (storageAddress) {
       this.setData({
         addressId: storageAddress.id,
@@ -38,7 +39,7 @@ Page({
         }
         self.setData({
           products: selectedProduct,
-          total: total,
+          totalFee: total,
         })
       },
       fail() {
@@ -47,16 +48,42 @@ Page({
     })
   },
 
-  toPay() {
-    wx.showModal({
-      title: '提示',
-      content: '本系统只做演示，支付系统已屏蔽',
-      text:'center',
-      complete() {
-        wx.switchTab({
-          url: '/page/component/user/user'
-        })
-      }
-    })
+  createOrder: function () {
+    const products = this.data.products;
+    const addressId = this.data.addressId;
+    const remark = this.data.remark;
+    const totalFee = this.data.totalFee;
+
+
+
+
+
   }
+
+  // toPay() {
+  //   wx.showModal({
+  //     title: '提示',
+  //     content: '本系统只做演示，支付系统已屏蔽',
+  //     text:'center',
+  //     complete() {
+  //       wx.switchTab({
+  //         url: '/page/component/user/user'
+  //       })
+  //     }
+  //   })
+  // },
+
+
+
 })
+
+
+
+
+
+
+
+
+
+
+

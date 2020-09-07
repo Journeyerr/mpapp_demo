@@ -1,6 +1,6 @@
 import {getRequest, postRequest} from "../../../config/request";
 import {addresses, createdAddresses, delAddresses} from "../../../config/api";
-import {carProductsKey, orderSelectAddress} from "../../../config/config";
+import {carProductsKey, orderSelectAddresskey} from "../../../config/config";
 
 Page({
   data:{
@@ -21,7 +21,7 @@ Page({
     });
     getRequest(addresses)
         .then(data => {
-          const storageAddress = wx.getStorageSync(orderSelectAddress);
+          const storageAddress = wx.getStorageSync(orderSelectAddresskey);
           const storageAddressId = storageAddress ? storageAddress.id : 0;
           for (let i=0; i<data.length; i++) {
             data[i].selected = data[i].id === storageAddressId;
@@ -55,12 +55,12 @@ Page({
     });
 
     if (isSelected) {
-      wx.setStorageSync(orderSelectAddress, address[index]);
+      wx.setStorageSync(orderSelectAddresskey, address[index]);
       setTimeout(function(){
         wx.navigateBack();
       }, 1000)
     }else {
-      wx.removeStorageSync(orderSelectAddress);
+      wx.removeStorageSync(orderSelectAddresskey);
     }
   },
 
@@ -115,11 +115,3 @@ Page({
     }
   }
 });
-
-// wx.setStorage({
-//   key: 'address',
-//   data: value,
-//   success(){
-//     wx.navigateBack();
-//   }
-// })
