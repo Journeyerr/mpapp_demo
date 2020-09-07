@@ -22,7 +22,16 @@
 }
 .orders-address-name{
     display: inline-block;
-    width: 300rpx;
+    width: 250rpx;
+    color: #666;
+}
+
+.orders-address-phone{
+    display: inline-block;
+    color: #666;
+}
+.orders-address-detail{
+    color: #666;
 }
 
 .orders-no-address{
@@ -61,11 +70,32 @@
     left: 20rpx;
     width: 180rpx;
     height: 180rpx;
+    border-radius: 30rpx;
 }
 .orders-list view{
     line-height: 60rpx;
 }
 
+.orders-pro-box {
+    padding-left: 5px;
+}
+.orders-pro-name {
+    color: #444;
+}
+
+.orders-pro-price {
+    padding-left: 10px;
+    color: #666;
+}
+
+.orders-count-num {
+    padding-left: 10px;
+    color: #777;
+}
+.orders-count-price {
+    float: right;
+    color: #777;
+}
 .orders-footer{
     position: fixed;
     bottom: 0;

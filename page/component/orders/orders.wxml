@@ -1,24 +1,27 @@
 <view class="main">
-    <navigator url="../address/address">
+    <navigator url="../address/address?total={{ total }}">
         <view wx:if="{{hasAddress}}" class="orders-address">
-            <text class="orders-address-name">收货人: {{address.name}}</text>
-            <text class="orders-address-phone">电话: {{address.phone}}</text>
-            <view class="orders-address-detail">{{address.detail}}</view>
+            <text class="orders-address-name">联系方式：  {{address.name}}</text>
+            <text class="orders-address-phone">{{address.phone}}</text>
+            <view class="orders-address-detail">配送地址：{{address.address}}</view>
         </view>
-        <view wx:else class="orders-no-address">添加收货地址</view>
+        <view wx:else="" class="orders-no-address">添加收货地址</view>
     </navigator>
 
     <view class="orders-box">
-        <view wx:for="{{orders}}" wx:key="index" class="orders-list">
-            <image class="orders-thumb" src="{{item.image}}"></image>
-            <view class="orders-pro-name">{{item.title}}</view>
-            <view class="orders-pro-price">￥{{item.price}}</view>
-            <view class="orders-count-num">×{{item.num}}</view>
+        <view wx:for="{{products}}" wx:key="index" class="orders-list">
+            <image class="orders-thumb" src="{{ item.product_image }}"></image>
+            <view class="orders-pro-box">
+                <view class="orders-pro-name">{{ item.name }}</view>
+                <view class="orders-pro-price">￥{{ item.price }} × {{ item.count }}</view>
+<!--                <view class="orders-count-num">×{{ item.count }}</view>-->
+                <view class="orders-count-price"> ￥{{ item.price * item.count }}</view>
+            </view>
         </view>
     </view>
 
     <view class="orders-footer">
         <view class="orders-footer-total">付款合计：￥{{total}}</view>
-        <view class="orders-footer-btn" bindtap="toPay">去付款</view>
+        <view class="orders-footer-btn" bindtap="toPay">生成订单</view>
     </view>
 </view>

@@ -87,16 +87,23 @@
           "scene": null
         },
         {
-          "id": -1,
+          "id": 3,
           "name": "地址管理",
           "pathName": "page/component/address/address",
-          "query": "",
+          "query": "total=340",
           "scene": null
         },
         {
           "id": -1,
           "name": "page/component/cart/cart",
           "pathName": "page/component/cart/cart",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "预览订单商品",
+          "pathName": "page/component/orders/orders",
           "query": "",
           "scene": null
         }

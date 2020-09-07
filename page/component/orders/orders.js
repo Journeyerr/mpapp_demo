@@ -1,43 +1,49 @@
-// page/component/orders/orders.js
+import {carProductsKey, orderSelectAddress} from "../../../config/config";
+
 Page({
   data:{
     address:{},
     hasAddress: false,
     total:0,
-    orders:[
-        {id:1,title:'新鲜芹菜 半斤',image:'/image/s5.png',num:4,price:0.01},
-        {id:2,title:'素米 500g',image:'/image/s6.png',num:1,price:0.03}
-      ]
+    products: [],
+    addressId: null
   },
 
-  onReady() {
-    this.getTotalPrice();
-  },
-  
-  onShow:function(){
+
+  onShow: function(){
     const self = this;
-    wx.getStorage({
-      key:'address',
-      success(res) {
-        self.setData({
-          address: res.data,
-          hasAddress: true
-        })
-      }
-    })
-  },
-
-  /**
-   * 计算总价
-   */
-  getTotalPrice() {
-    let orders = this.data.orders;
     let total = 0;
-    for(let i = 0; i < orders.length; i++) {
-      total += orders[i].num * orders[i].price;
+    let selectedProduct = [];
+
+    const storageAddress = wx.getStorageSync(orderSelectAddress);
+    if (storageAddress) {
+      this.setData({
+        addressId: storageAddress.id,
+        address: storageAddress,
+        hasAddress: true
+      })
     }
-    this.setData({
-      total: total
+
+    wx.getStorage({
+      key: carProductsKey,
+      success(res) {
+        let storageProducts = res.data;
+        console.log('orders page: storageProducts ---- ');
+        console.log(storageProducts.length);
+        for (let i = 0; i < storageProducts.length; i++) {
+          if (storageProducts[i].selected) {
+            total += storageProducts[i].count * storageProducts[i].price;
+            selectedProduct.push(storageProducts[i])
+          }
+        }
+        self.setData({
+          products: selectedProduct,
+          total: total,
+        })
+      },
+      fail() {
+
+      }
     })
   },
 
