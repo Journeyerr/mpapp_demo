@@ -21,7 +21,7 @@
     </view>
     <view class="order-remark">
         <view class="order-remark-name">订单备注：</view>
-        <input class="order-remark-input" value="{{ remark }}" name="remark" placeholder=""/>
+        <input class="order-remark-input" value="{{ remark }}" name="remark" bindinput="remarkInput"/>
     </view>
 
     <view class="orders-footer">

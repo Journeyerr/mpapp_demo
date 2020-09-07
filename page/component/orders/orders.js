@@ -48,13 +48,22 @@ Page({
     })
   },
 
+  remarkInput: function(e) {
+    this.setData({
+      remark: e.detail.value
+    })
+  },
+
   createOrder: function () {
     const products = this.data.products;
     const addressId = this.data.addressId;
     const remark = this.data.remark;
     const totalFee = this.data.totalFee;
 
-
+    console.log(products)
+    console.log(addressId)
+    console.log(remark)
+    console.log(totalFee)
 
 
 
