@@ -26,6 +26,7 @@
 
     <view class="orders-footer">
         <view class="orders-footer-total">付款合计：￥{{ totalFee }}</view>
-        <view class="orders-footer-btn" bindtap="createOrder">生成订单</view>
+        <view wx:if="{{ isCreate }}" class="'orders-footer-btn" bindtap="createOrder">生成订单</view>
+        <view wx:else="" class="'orders-footer-no-btn">生成订单</view>
     </view>
 </view>

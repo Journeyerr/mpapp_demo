@@ -120,6 +120,14 @@
     background: #AB956D;
 }
 
+.orders-footer .orders-footer-no-btn{
+    display: inline-block;
+    width: 240rpx;
+    text-align: center;
+    color: #fff;
+    background: #999999;
+}
+
 
 .order-remark {
     height: 80px;

@@ -10,6 +10,7 @@ Page({
     products: [],
     addressId: null,
     remark: '',
+    isCreate: true
   },
 
 
@@ -67,6 +68,8 @@ Page({
   },
 
   createOrder: function () {
+
+    this.setData({ isCreate: false })
 
     const data = this.data
     const carProducts = wx.getStorageSync(carProductsKey)
