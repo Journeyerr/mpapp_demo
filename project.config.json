@@ -103,8 +103,14 @@
         {
           "id": -1,
           "name": "预览订单商品",
-          "pathName": "page/component/orders/orders",
+          "pathName": "page/component/preview/preview",
           "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的订单",
+          "pathName": "page/component/order/order",
           "scene": null
         }
       ]

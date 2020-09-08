@@ -31,7 +31,7 @@ Page({
       key: carProductsKey,
       success(res) {
         let storageProducts = res.data;
-        console.log('orders page: storageProducts ---- ');
+        console.log('preview page: storageProducts ---- ');
         console.log(storageProducts.length);
 
         if (storageProducts.length < 1) {

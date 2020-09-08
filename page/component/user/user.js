@@ -5,7 +5,15 @@ import {userInfoKey} from "../../../config/config";
 
 Page({
   data:{
-    orders:[],
+    orders:[
+      {
+        number: '1234',
+        name: '1234',
+        count: 1,
+        status: 1,
+        money: 1
+      }
+    ],
     hasAddress:false,
     address:{},
     noAuthorization: false,

@@ -5,10 +5,11 @@
     "page/component/cart/cart",
     "page/component/user/user",
     "page/component/address/address",
-    "page/component/orders/orders",
+    "page/component/preview/preview",
     "page/component/details/details",
     "page/component/list/list",
-    "page/component/search/search"
+    "page/component/search/search",
+    "page/component/order/order"
   ],
   "window": {
     "navigationBarTextStyle": "white",

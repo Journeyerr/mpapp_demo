@@ -118,7 +118,7 @@
 }
 
 .cart-no-data{
-    padding:40rpx 0;
+    padding: 50% 0;
     color: #999;
     text-align: center;
 }

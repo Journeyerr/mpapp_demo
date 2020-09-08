@@ -14,7 +14,7 @@
             <view class="orders-pro-box">
                 <view class="orders-pro-name">{{ item.name }}</view>
                 <view class="orders-pro-price">￥{{ item.price }} × {{ item.count }}</view>
-<!--                <view class="orders-count-num">×{{ item.count }}</view>-->
+<!--                <view class="preview-count-num">×{{ item.count }}</view>-->
                 <view class="orders-count-price"> ￥{{ item.price * item.count }}</view>
             </view>
         </view>

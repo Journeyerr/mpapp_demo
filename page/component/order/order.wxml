@@ -1,0 +1,16 @@
+<view class="main">
+    <view class="list" wx:if="{{ !addPageShow }}">
+        <view wx:if="{{ order.length > 0 }}">
+            <view wx:for="{{ address }}" wx:key="index">
+                <view data-index="{{ index }}"  id="{{ item.id }}" class="{{ item.selected ? 'list-selected' : ''}}" bindtap="selected">
+                    <text class="delete-address" bindtap="delAddress" id="{{ item.id }}">删除</text>
+                    <text class="list-name">{{ item.name }} {{ item.phone }}</text>
+                    <text class="list-address"> {{ item.address }}</text>
+                </view>
+            </view>
+        </view>
+        <view wx:else="">
+            <text class="tips">你还没有订单呢，快去下单吧~</text>
+        </view>
+    </view>
+</view>
