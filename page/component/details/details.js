@@ -54,7 +54,7 @@ Page({
       selected:true,
       id: goods.id,
       name: goods.name,
-      price: goods.price,
+      price: goods.price.toFixed(2),
       unit: goods.unit,
       quantity: goods.quantity,
       product_image: goods.product_image,
