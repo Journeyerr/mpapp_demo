@@ -82,7 +82,7 @@ Page({
       shopId: shopId,
       phone: null,
       pickupTime: null,
-    }
+    };
 
     postRequest(createOrder, orderForm)
         .then( data => {

@@ -58,6 +58,7 @@ Page({
       unit: goods.unit,
       quantity: goods.quantity,
       product_image: goods.product_image,
+      image_id: goods.image_id,
       count: this.data.num
     };
 
