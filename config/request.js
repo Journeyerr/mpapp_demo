@@ -17,7 +17,7 @@ function request(url, data, method) {
             },
             fail: res => {
                 wx.showToast({
-                    title: '网络异常，请检查网络状态',
+                    title: '服务异常，请稍后再试',
                     icon: 'none',
                     duration: 3000
                 });
@@ -93,7 +93,7 @@ export  function login() {
                     })
             }else{
                 wx.showToast({
-                    title: '网络异常，请检查网络状态',
+                    title: '服务异常',
                     icon: 'none',
                     duration: 3000
                 });
