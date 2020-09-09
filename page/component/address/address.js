@@ -16,8 +16,10 @@ Page({
 
   onLoad: function(option){
     const that = this;
+    console.log(option)
+    console.log(Number(option.total) > 0)
     that.setData({
-      isOrderAddress: Number(option.total) >= 0
+      isOrderAddress: Number(option.total) > 0
     });
     getRequest(addresses)
         .then(data => {
@@ -30,9 +32,15 @@ Page({
             address: data,
           })
         });
+    console.log(this.data.isOrderAddress)
   },
 
   selected: function(e) {
+
+    if (!this.data.isOrderAddress) {
+      return;
+    }
+
     const selectAddressId = e.currentTarget.id;
     const index = e.currentTarget.dataset.index;
     const address = this.data.address;

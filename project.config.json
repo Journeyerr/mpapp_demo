@@ -90,7 +90,7 @@
           "id": 3,
           "name": "地址管理",
           "pathName": "page/component/address/address",
-          "query": "total=340",
+          "query": "",
           "scene": null
         },
         {
@@ -111,6 +111,7 @@
           "id": -1,
           "name": "我的订单",
           "pathName": "page/component/order/order",
+          "query": "",
           "scene": null
         }
       ]

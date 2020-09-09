@@ -1,5 +1,5 @@
 <view class="main">
-    <navigator url="../address/address?total={{ total }}">
+    <navigator url="../address/address?total={{ totalFee }}">
         <view wx:if="{{hasAddress}}" class="orders-address">
             <text class="orders-address-name">联系方式：  {{address.name}}</text>
             <text class="orders-address-phone">{{address.phone}}</text>

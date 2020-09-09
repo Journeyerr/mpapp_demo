@@ -82,7 +82,7 @@ Page({
       shopId: shopId,
       phone: null,
       pickupTime: null,
-    }
+    };
 
     postRequest(createOrder, orderForm)
         .then( data => {
@@ -104,7 +104,7 @@ Page({
             showCancel:false,
             complete() {
               wx.switchTab({
-                url: '/page/component/user/user'
+                url: '/page/component/order/order'
               })
             }
           })
