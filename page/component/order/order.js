@@ -1,3 +1,5 @@
+import {getRequest} from "../../../config/request";
+import {orderList} from "../../../config/api";
 
 Page({
   data:{
@@ -13,6 +15,10 @@ Page({
 
   onLoad: function(option){
 
+    getRequest(orderList)
+        .then(data => {
+          console.log(data)
+        })
   },
 
 

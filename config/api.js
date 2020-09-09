@@ -10,3 +10,4 @@ export const delAddresses = '/api/address/delete';
 export const userInfo = '/api/user';
 export const userUpdate = '/api/user/update';
 export const createOrder = '/api/order/store';
+export const orderList = '/api/order/list';
