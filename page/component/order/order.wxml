@@ -1,33 +1,35 @@
 <view class="main">
-    <view class="list" wx:if="{{ !addPageShow }}">
-        <view wx:if="{{ order.length > 0 }}">
-            <view wx:for="{{ address }}" wx:key="index">
-                <view data-index="{{ index }}"  id="{{ item.id }}" class="{{ item.selected ? 'list-selected' : ''}}" bindtap="selected">
-                    <text class="delete-address" bindtap="delAddress" id="{{ item.id }}">删除</text>
-                    <text class="list-name">{{ item.name }} {{ item.phone }}</text>
-                    <text class="list-address"> {{ item.address }}</text>
+    <view class="orders-box" wx:if="{{ orders.length > 0 }}">
+        <view class="orders-list" wx:for="{{ orders }}" wx:key="orderIndex" wx:for-item="order">
+            <view class="orders-number">订单编号：{{ order.no }}</view>
+            <view class="orders-number">下单门店：{{ order.shopName }}</view>
+            <view class="orders-detail"  wx:for="{{ order.items}}" wx:for-item="value" wx:key="id" >
+                <image src="{{ value.image }}"></image>
+                <view class="orders-detail-name">{{ value.name }}
+                    <text class="orders-detail-price">¥{{ value.price }}</text>
                 </view>
-            </view>
-        </view>
-        <view wx:else="">
-            <text class="tips">你还没有订单呢，快去下单吧~</text>
-        </view>
-    </view>
-
-    <view class="orders-box">
-        <view class="orders">我的订单</view>
-        <view class="orders-list" wx:for="{{orders}}" wx:key="index">
-            <view class="orders-number">订单编号：{{item.number}}</view>
-            <view class="orders-detail">
-                <image src="{{item.thumb}}"></image>
-                <view class="">{{item.name}}</view>
-                <view class="">{{item.count}}</view>
-                <text class="orders-status">{{item.status}}</text>
+                <view class="">下单：x {{ value.quantity }}
+                    <text class="orders-detail-actualQuantity" wx:if="{{ value.actualQuantity }}"> 实际：x {{ value.actualQuantity }}</text>
+                </view>
+                <view class="orders-detail-total" wx:if="{{ value.actualTotalFee }}">
+                    <text class="orders-detail-xiaoji">小计：</text>{{ value.actualTotalFee }}
+                </view>
+                <view class="orders-detail-total" wx:elif="{{ value.actualQuantity }}">
+                    <text class="orders-detail-xiaoji">小计：</text>{{ value.price *  value.actualQuantity }}
+                </view>
+                <view wx:else="" class="orders-detail-total">
+                    <text class="orders-detail-xiaoji">小计：</text>{{ value.price *  value.quantity }}
+                </view>
+<!--                <text class="orders-status">{{ value.status }}</text>-->
             </view>
             <view class="orders-footer">
-                <text>实付：￥{{item.money}}</text>
-                <button size="mini" class="orders-btn" bindtap="payOrders">付款</button>
+                <text wx:if="{{ order.actualTotalFee }}">总计：￥{{ order.actualTotalFee }}</text>
+                <text wx:else="">总计：￥{{ order.totalFee }}</text>
+<!--                <button size="mini" class="orders-btn" bindtap="payOrders">付款</button>-->
             </view>
         </view>
+    </view>
+    <view wx:else="">
+        <text class="tips">你还没有订单呢，快去下单吧~</text>
     </view>
 </view>

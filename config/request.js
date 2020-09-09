@@ -42,7 +42,7 @@ export function postRequest(url, data= {}) {
  * @returns {Promise}
  */
 function checkStatus(response) {
-    let msg = '网络异常';
+    let msg = '服务异常';
     if(response.statusCode >=200 && response.statusCode < 400){
         switch (response.data.code) {
             case 0:
