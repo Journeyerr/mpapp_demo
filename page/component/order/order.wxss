@@ -27,7 +27,7 @@
 }
 .orders-list{
     padding-left: 30rpx;
-    border-bottom: 20rpx solid #ededed;
+    border-bottom: 20rpx solid #d0b58e;
 }
 .orders-list:last-child{
     border-bottom: 0;
