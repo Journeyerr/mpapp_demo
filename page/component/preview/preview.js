@@ -99,7 +99,7 @@ Page({
           wx.setStorageSync(carProductsKey, carProducts);
           wx.showModal({
             title: '提示',
-            content: '下单成功, 已通知店家准备..',
+            content: '下单成功, 商家备货中!',
             text:'center',
             showCancel:false,
             complete() {
