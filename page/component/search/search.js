@@ -7,7 +7,7 @@ data: {
     hot: [],
     products: [],
     showKeywords: false,
-    keywords: ['山东肚脐橙', '湖南冰糖橙', '麻涌香蕉', '冰糖心苹果'],
+    keywords: [],
     value: '',
     showResult: false,
 },
