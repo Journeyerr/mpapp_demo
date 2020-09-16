@@ -103,7 +103,7 @@ Page({
             text:'center',
             showCancel:false,
             complete() {
-              wx.switchTab({
+              wx.navigateTo({
                 url: '/page/component/order/order'
               })
             }

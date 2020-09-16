@@ -103,6 +103,7 @@
     width: 100%;
     height: 120rpx;
     line-height: 120rpx;
+    font-size: 16px;
     /*border-top: 1rpx solid #ededed;*/
 }
 .orders-footer .orders-footer-total{

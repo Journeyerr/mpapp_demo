@@ -51,6 +51,8 @@
     bottom:0;
     display: block;
     width: 100%;
+    height: 68px;
+    line-height: 68px;
 }
 .tips {
     display: inline-block;
